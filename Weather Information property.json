@@ -1,0 +1,59 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "message": "get",
+    "messageType": "property",
+    "direction": "response",
+    "responseCode" : 200,
+    "containerName": "WeatherInformation",
+    "definitions":{
+      "PM10":{
+        "type":"integer",
+        "readOnly":true,
+        "unit" : "㎍/㎥",
+        "comment" : "미세먼지"
+      },
+      "PM2.5":{
+        "type":"integer",
+        "readOnly":true,
+        "unit" : "㎍/㎥",
+        "comment" : "초미세먼지"
+      },
+      "T3H":{
+          "type":"integer",
+          "readOnly":true,
+          "unit":"℃",
+          "comment" : "3시간 기온"
+      },
+      "SKY":{
+          "type":{ "enum":["sunny", "partly cloudy", "mostly cloudy", "cloudy"] },
+          "readOnly":true,
+          "comment" : "하늘상태 : 맑음, 구름조금, 구름많음, 흐림"
+      },
+      "PTY":{
+          "type" : { "enum":[ "clear", "rain", "mixed rain and snow", "snow" ] },
+          "readOnly":true,
+          "comment" : "강수형태 : 없음, 비, 비/눈, 눈"
+     }
+   },
+   "items":[
+      {
+        "resource" : "WeatherInformation.ArpltnInforInqireSvc.CtprvnMesureLIst",
+        "required" : ["PM10", "PM2.5"],
+        "properties" : {
+          "PM10":{"$ref":"#/definitions/PM10" },
+          "PM2.5":{"$ref":"#/definitions/PM2.5" }
+        },
+        "comment" : "날씨정보서비스.대기오염정보조회서비스.시도별실시간평균정보조회"
+      },
+      {
+        "resource" : "WeatherInformation.SecndSrtpdFrcstInfoService2.ForecastSpaceData",
+        "required" : ["T3H", "SKY", "PTY"],
+        "properties": {
+          "T3H":{"$ref":"#/definitions/T3H" },
+          "SKY":{"$ref":"#/definitions/SKY" },
+          "PTY":{"$ref":"#/definitions/PTY" }
+        },
+        "comment" : "날씨정보서비스.동네예보정보조회서비스.동네예보조회"
+      }
+   ]
+}

@@ -1,0 +1,17 @@
+{
+    "location": {
+      "address": "경기도 용인시 기흥구 영덕동"
+    },
+    "configuration": [
+      {
+        "resource": "WeatherInformation.SecndSrtpdFrcstInfoService2.ForecastSpaceData",
+        "End Point": "http://newsky2.kma.go.kr/service/SecndSrtpdFrcstInfoService2",
+        "Key": "x6BVj%2BCjwdJZbUjUim9ZZI2vEQFkO2dwOqmPo%2BxxqtcMqEh6az5Dew2mN009kwtvAZw0fCI2sp%2Bbh05UL6SYYg%3D%3D"
+      },
+      {
+        "resource": "WeatherInformation.ArpltnInforInqireSvc.CtprvnMesureLIst",
+        "End Point": "http://openapi.airkorea.or.kr/",
+        "Key": "x6BVj%2BCjwdJZbUjUim9ZZI2vEQFkO2dwOqmPo%2BxxqtcMqEh6az5Dew2mN009kwtvAZw0fCI2sp%2Bbh05UL6SYYg%3D%3D"
+      }
+    ]
+  }
