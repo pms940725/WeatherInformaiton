@@ -1,5 +1,5 @@
 package initProject;
-//main//
+
 import java.util.ArrayList;
 
 import ThreadOperation.Thread1;
