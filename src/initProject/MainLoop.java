@@ -1,5 +1,5 @@
 package initProject;
-
+//main
 import java.util.ArrayList;
 
 import ThreadOperation.Thread1;
@@ -64,7 +64,7 @@ public class MainLoop {
 			//t3.start();
 			Parameter.threadArray.add(t3);
 
-			
+
 			// Thread를 join 시킴
 			for (Thread t : Parameter.threadArray) {
 				t.join();
