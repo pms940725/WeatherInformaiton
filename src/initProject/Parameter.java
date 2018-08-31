@@ -23,7 +23,7 @@ public class Parameter {
 	
 	public static ArrayList<Thread> threadArray= new ArrayList<Thread>();
 	public static boolean operationRunning = false;
-	public final static boolean DebugMode = false;
+	public final static boolean DebugMode = true;
 	public final static boolean PrintMode = false;
 
 //FilePath 설정

@@ -16,7 +16,7 @@ public class Thread2 extends Thread{
 			while (true) {
 				Thread.sleep(1000);
 				if (Parameter.operationRunning == true) {
-					Thread.sleep(60000);
+					
 					JSONObject jsonObject = new JSONObject();
 					jsonObject.put("message", "notify");
 					jsonObject.put("messageType", "keepAlive");
@@ -24,6 +24,7 @@ public class Thread2 extends Thread{
 					jsonObject.put("resource", Parameter.Container_Name);
 
 					SendToServer.send("notify.keepAlive", jsonObject.toString());
+					Thread.sleep(60000);
 				}
 			}
 		} catch (Exception e) {

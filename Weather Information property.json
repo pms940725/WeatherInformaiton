@@ -12,7 +12,7 @@
         "unit" : "㎍/㎥",
         "comment" : "미세먼지"
       },
-      "PM2.5":{
+      "PM25":{
         "type":"integer",
         "readOnly":true,
         "unit" : "㎍/㎥",
@@ -38,10 +38,10 @@
    "items":[
       {
         "resource" : "WeatherInformation.ArpltnInforInqireSvc.CtprvnMesureLIst",
-        "required" : ["PM10", "PM2.5"],
+        "required" : ["PM10", "PM25"],
         "properties" : {
           "PM10":{"$ref":"#/definitions/PM10" },
-          "PM2.5":{"$ref":"#/definitions/PM2.5" }
+          "PM25":{"$ref":"#/definitions/PM25" }
         },
         "comment" : "날씨정보서비스.대기오염정보조회서비스.시도별실시간평균정보조회"
       },

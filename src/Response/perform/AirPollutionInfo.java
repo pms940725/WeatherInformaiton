@@ -141,7 +141,9 @@ public class AirPollutionInfo {
 			Iterator<String> iter = itemObject.keySet().iterator();
 			while (iter.hasNext()) {
 		        String key = iter.next();
-		     
+		        if(key.equals("PM25")) {
+		        	key = "PM2.5";
+		        }
 		        //city 정보를 비교
 		        if(key.equals(city1)) {
 		        	cur_PM25 = itemObject.get(key).toString();
@@ -157,10 +159,10 @@ public class AirPollutionInfo {
 				notifyObject.put("resource", resourceName);
 				notifyObject.put("description", "status updated");
 				JSONArray requiredArray = new JSONArray();
-				requiredArray.add("PM2.5");
+				requiredArray.add("PM25");
 				notifyObject.put("required", requiredArray);
 				JSONObject propertyObject = new JSONObject();
-				propertyObject.put("PM2.5", Integer.parseInt(cur_PM25));
+				propertyObject.put("PM25", Integer.parseInt(cur_PM25));
 				notifyObject.put("properties", propertyObject);
 				
 				SendToServer.send("notify.updated", notifyObject.toString());
@@ -209,8 +211,12 @@ public class AirPollutionInfo {
 			Iterator<String> iter = itemObject.keySet().iterator();
 			while (iter.hasNext()) {
 		        String key = iter.next();
+		
 		        //요청한 정보만 json으로 추가
 		        String itemCode = itemObject.get("itemCode").toString();
+		        if(itemCode.equals("PM2.5")) {
+		        	itemCode = "PM25";
+		        }
 		        if(!requestPropArrayList.contains(itemCode))
 					continue;
 		        //city 정보를 비교
@@ -303,10 +309,7 @@ public static boolean comparePropertyArray(ArrayList<String> requestPropArray) {
 		try {
 			for (String property : propertyArray) {
 				itemCode = property;
-				//itemCode 예외 처리.... PM2.5 PM25 통일 좀 시켜놓지 API 개떡같이 만들어놨어...ㄷㄷ
-				if(itemCode.equals("PM2.5")) {
-					itemCode = "PM25";
-				}
+				//itemCode 예외 처리.... PM25 PM25 통일 좀 시켜놓지 API 개떡같이 만들어놨어...ㄷㄷ
 				if (setURL() == false) {
 					System.out.println("API 요청 과정에서 Error가 발생하였습니다.");
 					return null;

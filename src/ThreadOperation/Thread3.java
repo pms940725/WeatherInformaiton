@@ -14,13 +14,15 @@ public class Thread3 extends Thread {
 				Thread.sleep(1000);
 				if(Parameter.operationRunning == true) {
 					
-					Thread.sleep(60000);
+					
 					
 					AirPollutionInfo.notifyUpdatedPM10();
 					AirPollutionInfo.notifyUpdatedPM25();
 					FrcstInfo.notifyUpdatedPTY();
 					FrcstInfo.notifyUpdatedSKY();
 					FrcstInfo.notifyUpdatedT3H();
+					
+					Thread.sleep(60000);
 		
 				}
 			}
